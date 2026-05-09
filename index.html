@@ -87,19 +87,28 @@
         .urgency-bar span { animation: pulse 1.5s ease-in-out infinite; display: inline-block; }
         @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 
-        /* Hero com vídeo MP4 */
+        /* Seção do vídeo no topo */
+        .video-section {
+            position: relative; z-index: 2; padding: 40px 20px 20px; text-align: center;
+            background: rgba(8,13,24,0.6); backdrop-filter: blur(10px);
+        }
+        .video-wrapper {
+            max-width: 800px; margin: 0 auto;
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 0 40px rgba(244,121,32,0.3), 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(244,121,32,0.3);
+            background: #000;
+        }
+        .video-wrapper video {
+            width: 100%; display: block;
+            border-radius: 16px;
+        }
+
+        /* Hero (agora sem vídeo de fundo) */
         .hero {
             position: relative; min-height: 100vh; display: flex;
             align-items: center; justify-content: center; text-align: center;
-            padding: 100px 20px; overflow: hidden;
-        }
-        .hero-video-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: 0;
-        }
-        .hero-video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(8,13,24,0.7); z-index: 1;
+            padding: 60px 20px;
         }
         .hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 1; }
         .hero-bg .glow {
@@ -531,13 +540,18 @@
         <span>⚡ OFERTA RELÂMPAGO: Preço especial termina em breve — vagas limitadas com bônus incluso ⚡</span>
     </div>
 
-    <!-- Hero com vídeo MP4 de fundo -->
+    <!-- Player de vídeo no topo -->
+    <section class="video-section">
+        <div class="video-wrapper">
+            <video controls preload="metadata">
+                <source src="bibliatelecom.mp4" type="video/mp4">
+                Seu navegador não suporta vídeo HTML5.
+            </video>
+        </div>
+    </section>
+
+    <!-- Hero (sem vídeo de fundo) -->
     <section class="hero">
-        <video class="hero-video-bg" autoplay muted loop playsinline>
-            <source src="bibliatelecom.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo HTML5.
-        </video>
-        <div class="hero-video-overlay"></div>
         <div class="hero-bg">
             <div class="glow glow-1"></div>
             <div class="glow glow-2"></div>
