@@ -1,290 +1,500 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bíblia da Energia de Telecom – Nunca Mais Perca Clientes por Queda de Energia</title>
-    <meta name="description" content="Guia prático para blindar seu provedor contra apagões. Instalação em menos de 1 hora. Acesso imediato e garantia de 7 dias.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bíblia da Energia de Telecom – Nunca Mais Perca Clientes por Queda de Energia</title>
+<meta name="description" content="Guia prático para blindar seu provedor contra apagões. Instalação em menos de 1 hora. Acesso imediato e garantia de 7 dias.">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JDRNDHQMS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6JDRNDHQMS');
-    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6JDRNDHQMS"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6JDRNDHQMS');</script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0a0f1a;
-            color: #e2e8f0;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-        .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-        h1, h2, h3 { font-weight: 800; line-height: 1.2; }
-        h1 { font-size: clamp(2.5rem, 6vw, 4rem); color: #ffffff; margin-bottom: 20px; }
-        h2 { font-size: clamp(2rem, 4vw, 2.8rem); color: #ffffff; margin-bottom: 16px; }
-        .highlight { color: #f97316; }
-        .btn {
-            display: inline-block; background: #f97316; color: #ffffff; font-weight: 700; font-size: 1.1rem;
-            padding: 18px 36px; border-radius: 8px; text-decoration: none;
-            transition: background 0.3s, transform 0.2s; text-align: center;
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
-        }
-        .btn:hover { background: #ea580c; transform: translateY(-2px); }
-        section { padding: 80px 0; }
-        .text-center { text-align: center; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 
-        /* Imagem destacada no topo */
-        .hero-image {
-            max-width: 800px; margin: 0 auto 30px; border-radius: 16px; overflow: hidden;
-            box-shadow: 0 12px 30px rgba(249, 115, 22, 0.25); border: 1px solid #1e293b;
-        }
-        .hero-image img { width: 100%; display: block; }
+<style>
+:root{
+  --bg:#03080f;
+  --bg2:#060d18;
+  --card:#0a1628;
+  --orange:#f97316;
+  --orange2:#fb923c;
+  --green:#22c55e;
+  --yellow:#fbbf24;
+  --red:#ef4444;
+  --white:#f0f6ff;
+  --gray:#64748b;
+  --gray2:#94a3b8;
+  --border:#1e293b;
+  --r:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--white);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+.container{max-width:960px;margin:0 auto;padding:0 24px;}
+.text-center{text-align:center;}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,8vw,96px);line-height:.95;letter-spacing:2px;color:#fff;margin-bottom:20px;}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);line-height:1.0;letter-spacing:1.5px;color:#fff;margin-bottom:16px;}
+.acc{color:var(--orange);}
+.grn{color:var(--green);}
 
-        /* Vídeo menor */
-        .video-container {
-            max-width: 480px; margin: 0 auto 40px; border-radius: 12px; overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-        }
-        .video-container video { width: 100%; display: block; }
+/* TOP BAR */
+.topbar{background:var(--red);text-align:center;padding:11px 20px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:.8px;position:sticky;top:0;z-index:200;box-shadow:0 2px 20px rgba(239,68,68,.4);animation:barPulse 3s ease infinite;}
+@keyframes barPulse{0%,100%{background:#ef4444;}50%{background:#dc2626;}}
 
-        /* Cards, timeline etc. */
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 40px; }
-        .card { background: #131b2b; border-radius: 12px; padding: 28px 24px; border: 1px solid #1e293b; transition: transform 0.2s, border-color 0.2s; }
-        .card:hover { transform: translateY(-4px); border-color: #f97316; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 10px; color: #fff; }
-        .card p { color: #94a3b8; font-size: 0.95rem; }
+/* HERO */
+.hero{padding:60px 0 40px;background:radial-gradient(ellipse 90% 60% at 50% 0%,rgba(249,115,22,.18) 0%,transparent 65%),var(--bg);}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--orange2);padding:8px 20px;border-radius:50px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.badge-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1s ease infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.2;}}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:#94a3b8;max-width:640px;margin:0 auto 32px;line-height:1.65;}
+.hero-sub b{color:var(--green);}
 
-        .timeline { position: relative; padding-left: 32px; margin-top: 40px; }
-        .timeline::before { content: ''; position: absolute; left: 15px; top: 0; bottom: 0; width: 2px; background: #f97316; }
-        .timeline-item { position: relative; margin-bottom: 32px; padding-left: 24px; }
-        .timeline-item::before { content: ''; position: absolute; left: 8px; top: 8px; width: 12px; height: 12px; background: #f97316; border-radius: 50%; }
-        .timeline-item h3 { font-size: 1.2rem; margin-bottom: 6px; }
-        .timeline-item p { color: #94a3b8; }
+/* HERO IMAGE */
+.hero-img{max-width:760px;margin:0 auto 30px;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.2);}
+.hero-img img{width:100%;display:block;}
 
-        .testimonial-card { background: #131b2b; border-radius: 12px; padding: 24px; border: 1px solid #1e293b; }
-        .stars { color: #fbbf24; margin-bottom: 8px; }
-        .testimonial-text { font-style: italic; margin: 12px 0; }
-        .author { font-weight: 600; color: #f97316; }
+/* VIDEO */
+.video-wrap{max-width:460px;margin:0 auto 40px;border-radius:12px;overflow:hidden;border:1px solid rgba(249,115,22,.25);box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.video-wrap video{width:100%;display:block;}
 
-        /* Preço */
-        .price-box { background: #131b2b; border: 1px solid #f97316; border-radius: 16px; padding: 48px 32px; text-align: center; max-width: 500px; margin: 0 auto; box-shadow: 0 0 40px rgba(249, 115, 22, 0.15); }
-        .old-price { text-decoration: line-through; color: #64748b; font-size: 1.4rem; margin-bottom: 8px; }
-        .current-price { font-size: 4.5rem; font-weight: 800; color: #fff; line-height: 1; }
-        .current-price span { font-size: 2rem; vertical-align: super; }
-        .installments { color: #94a3b8; margin: 8px 0 24px; font-size: 1rem; }
+/* BUTTON */
+.btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--orange),#ea580c);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:20px 44px;border-radius:50px;box-shadow:0 0 50px rgba(249,115,22,.4),0 4px 20px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.btn::before{content:'';position:absolute;top:-50%;left:-60%;width:35%;height:200%;background:rgba(255,255,255,.15);transform:skewX(-20deg);animation:shine 2.5s ease infinite;}
+@keyframes shine{0%{left:-60%;}100%{left:130%;}}
+.btn:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 0 80px rgba(249,115,22,.6),0 8px 30px rgba(0,0,0,.4);}
+.btn-green{background:linear-gradient(135deg,var(--green),#16a34a);box-shadow:0 0 50px rgba(34,197,94,.4),0 4px 20px rgba(0,0,0,.3);}
+.btn-green:hover{box-shadow:0 0 80px rgba(34,197,94,.6),0 8px 30px rgba(0,0,0,.4);}
 
-        /* FAQ */
-        .faq-item { border-bottom: 1px solid #1e293b; padding: 20px 0; cursor: pointer; }
-        .faq-item h3 { font-size: 1.1rem; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; color: #94a3b8; font-size: 0.95rem; }
-        .faq-item.open .faq-answer { max-height: 200px; padding-top: 12px; }
-        .faq-icon { font-size: 1.5rem; transition: transform 0.3s; }
-        .faq-item.open .faq-icon { transform: rotate(45deg); }
+.trust-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--gray2);}
+.trust-row span{color:var(--green);}
 
-        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 100; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(37,211,102,0.5); color: #fff; font-size: 28px; text-decoration: none; transition: transform 0.2s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
-        footer { text-align: center; padding: 40px 0; color: #475569; font-size: 0.9rem; border-top: 1px solid #1e293b; }
+/* PROOF STRIP */
+.proof-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(249,115,22,.12);border-radius:var(--r);overflow:hidden;margin-top:48px;}
+.proof-item{padding:20px 12px;text-align:center;border-right:1px solid rgba(249,115,22,.08);background:rgba(249,115,22,.03);}
+.proof-item:last-child{border-right:none;}
+.proof-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--orange);display:block;line-height:1;}
+.proof-lbl{font-size:10px;color:var(--gray2);text-transform:uppercase;letter-spacing:1.5px;margin-top:3px;}
 
-        @media (max-width: 600px) {
-            .current-price { font-size: 3.5rem; }
-        }
-    </style>
+/* DIVIDER */
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(249,115,22,.1),transparent);max-width:960px;margin:0 auto;}
+
+/* SECTION */
+section{padding:72px 0;}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:block;}
+
+/* CARDS */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:36px;}
+.card{background:var(--card);border-radius:var(--r);padding:26px 22px;border:1px solid var(--border);transition:transform .2s,border-color .2s;}
+.card:hover{transform:translateY(-4px);border-color:rgba(249,115,22,.3);}
+.card h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:.3px;}
+.card p{color:var(--gray2);font-size:14px;line-height:1.6;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:32px;margin-top:36px;}
+.timeline::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--orange),var(--green));}
+.timeline-item{position:relative;margin-bottom:28px;padding:20px 22px 20px 28px;background:var(--card);border:1px solid var(--border);border-radius:var(--r);transition:transform .2s,border-color .2s;}
+.timeline-item:hover{transform:translateX(4px);border-color:rgba(249,115,22,.25);}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:26px;width:12px;height:12px;background:var(--orange);border-radius:50%;border:2px solid var(--bg);}
+.timeline-item h3{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:.3px;margin-bottom:4px;}
+.timeline-item p{color:var(--gray2);font-size:14px;}
+.mod-tag{display:inline-block;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.18);color:var(--green);font-size:10px;font-weight:700;padding:2px 10px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;}
+
+/* TESTIMONIAL */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:36px;}
+.test-card{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid var(--border);transition:transform .2s;}
+.test-card:hover{transform:translateY(-4px);}
+.stars{color:var(--yellow);margin-bottom:8px;font-size:14px;}
+.test-text{font-style:italic;color:#94a3b8;font-size:14px;line-height:1.7;margin:10px 0;}
+.test-author{font-weight:700;color:var(--orange);font-size:14px;}
+
+/* AUTHOR SECTION */
+.author-section{background:rgba(249,115,22,.04);border-top:1px solid rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.1);}
+.author-card{background:var(--card);border:1px solid rgba(249,115,22,.15);border-radius:16px;padding:36px;display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;margin-top:36px;}
+.author-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange2));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:36px;color:#fff;flex-shrink:0;box-shadow:0 0 30px rgba(249,115,22,.3);}
+.author-name{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;margin-bottom:4px;}
+.author-role{font-size:13px;color:var(--gray2);margin-bottom:16px;}
+.author-bio{font-size:15px;color:#94a3b8;line-height:1.75;}
+.author-bio b{color:var(--white);}
+.author-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;}
+.astat{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:14px;text-align:center;}
+.astat-num{font-family:'Bebas Neue',sans-serif;font-size:34px;color:var(--orange);line-height:1;}
+.astat-lbl{font-size:10px;color:var(--gray2);text-transform:uppercase;letter-spacing:1px;margin-top:2px;}
+.author-quote{background:rgba(249,115,22,.06);border-left:3px solid rgba(249,115,22,.4);border-radius:0 var(--r) var(--r) 0;padding:18px 22px;margin-top:20px;font-size:15px;color:#94a3b8;line-height:1.7;font-style:italic;}
+.author-quote-name{font-size:12px;color:var(--gray2);margin-top:8px;font-style:normal;}
+
+/* PRICE */
+.price-box{background:var(--card);border:1px solid rgba(249,115,22,.3);border-radius:20px;padding:48px 32px;text-align:center;max-width:500px;margin:0 auto;box-shadow:0 0 60px rgba(249,115,22,.1);position:relative;overflow:hidden;}
+.price-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--orange),var(--yellow),var(--orange),transparent);background-size:200% 100%;animation:scan 3s linear infinite;}
+@keyframes scan{0%{background-position:0%;}100%{background-position:200%;}}
+.price-launch{display:inline-block;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:#f87171;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.price-old{font-size:18px;color:var(--gray);text-decoration:line-through;margin-bottom:4px;}
+.price-main{font-family:'Bebas Neue',sans-serif;font-size:96px;line-height:1;color:var(--white);letter-spacing:2px;text-shadow:0 0 40px rgba(249,115,22,.2);}
+.price-main small{font-size:40px;vertical-align:super;}
+.price-ctx{font-size:14px;color:var(--gray2);margin-bottom:6px;}
+.price-install{font-size:16px;color:var(--gray2);margin-bottom:24px;}
+.price-feats{display:flex;flex-direction:column;gap:10px;margin:22px 0;text-align:left;}
+.pf{display:flex;align-items:center;gap:10px;font-size:14px;color:#94a3b8;}
+.pf-dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 8px var(--green);flex-shrink:0;}
+.secure{font-size:12px;color:var(--gray2);margin-top:14px;}
+
+/* GUARANTEE */
+.guarantee{background:rgba(34,197,94,.04);border:1px solid rgba(34,197,94,.15);border-radius:16px;padding:32px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
+.g-seal{width:84px;height:84px;background:rgba(34,197,94,.08);border:2px solid rgba(34,197,94,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:38px;flex-shrink:0;animation:sealGlow 3s ease infinite;}
+@keyframes sealGlow{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.2);}50%{box-shadow:0 0 25px 6px rgba(34,197,94,.06);}}
+.g-text h3{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:1px;color:var(--green);margin-bottom:6px;}
+.g-text p{font-size:14px;color:#94a3b8;line-height:1.7;}
+.g-text b{color:var(--white);}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:.3px;color:var(--white);transition:color .2s;gap:14px;}
+.faq-q:hover{color:var(--orange);}
+.faq-icon{font-size:22px;color:var(--orange);transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:14px;color:var(--gray2);line-height:1.7;}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:18px;}
+
+/* STICKY */
+.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(3,8,15,.97);border-top:1px solid rgba(249,115,22,.2);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;z-index:150;backdrop-filter:blur(20px);transform:translateY(100%);transition:transform .4s ease;}
+.sticky.show{transform:translateY(0);}
+.sticky-price{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--orange);line-height:1;}
+.sticky-desc{font-size:11px;color:var(--gray2);}
+.sticky-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--orange),#ea580c);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;letter-spacing:1px;text-transform:uppercase;text-decoration:none;padding:14px 28px;border-radius:50px;white-space:nowrap;box-shadow:0 4px 20px rgba(249,115,22,.35);transition:transform .2s;}
+.sticky-btn:hover{transform:scale(1.04);}
+
+/* WHATSAPP */
+.wpp{position:fixed;bottom:80px;right:20px;z-index:140;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.5);animation:wppFloat 3s ease-in-out infinite;}
+@keyframes wppFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.wpp:hover{transform:scale(1.1)!important;}
+
+/* SALE POPUP */
+.sale-popup{position:fixed;bottom:90px;left:20px;z-index:140;background:var(--card);border:1px solid rgba(34,197,94,.3);border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 8px 30px rgba(0,0,0,.5);animation:popSlide .4s ease;}
+@keyframes popSlide{from{transform:translateX(-140px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+.pop-av{width:32px;height:32px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:13px;color:#021a0e;font-weight:700;flex-shrink:0;}
+.pop-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.3px;}
+.pop-time{font-size:11px;color:var(--gray2);}
+
+/* DARK BG */
+.dark-bg{background:rgba(6,13,24,.8);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+
+footer{text-align:center;padding:32px 20px;color:var(--gray);font-size:12px;border-top:1px solid var(--border);}
+
+@media(max-width:768px){
+  .proof-strip{grid-template-columns:repeat(2,1fr);}
+  .price-main{font-size:72px;}
+  .sticky{flex-direction:column;text-align:center;padding:14px;}
+  .guarantee{flex-direction:column;align-items:center;text-align:center;}
+  .author-card{flex-direction:column;align-items:center;text-align:center;}
+  .author-stats{grid-template-columns:repeat(3,1fr);}
+}
+</style>
 </head>
 <body>
 
-    <!-- Hero -->
-    <section style="padding-top: 40px; padding-bottom: 20px;">
-        <div class="container text-center">
-            <p style="color: #f97316; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;">Módulo 1 – Acesso Imediato</p>
-            <h1>Sua Rede <span class="highlight">Cai</span> Quando Falta Energia?</h1>
-            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 32px;">
-                Chega de perder clientes e dinheiro a cada apagão. Blindagem completa para seu provedor por menos de R$ 1.800 – mesmo com 50 clientes e zero experiência em elétrica.
-            </p>
-            <a href="https://pay.kiwify.com.br/KCM0X00" class="btn">⚡ Quero Blindar Minha Rede Agora →</a>
-            <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">✓ Acesso vitalício &nbsp;|&nbsp; ✓ Garantia de 7 dias &nbsp;|&nbsp; ✓ Pagamento seguro</p>
+<div class="topbar">⚡ OFERTA RELÂMPAGO: Preço especial termina em breve — vagas limitadas com bônus incluso ⚡</div>
+
+<!-- HERO -->
+<section class="hero text-center">
+  <div class="container">
+    <div class="hero-badge"><span class="badge-dot"></span> 🔴 Módulo 1 — Acesso Imediato</div>
+    <h1>Sua Rede <span class="acc">Cai</span> Quando<br>Falta Energia?</h1>
+    <p class="hero-sub">Chega de perder clientes e dinheiro a cada apagão. Blindagem completa para seu provedor por <b>menos de R$ 1.800</b> — mesmo com zero experiência em elétrica.</p>
+
+    <a href="https://pay.kiwify.com.br/KCM0X00" class="btn" target="_blank" rel="noopener">⚡ Quero Blindar Minha Rede Agora →</a>
+    <div class="trust-row">
+      <span>✓ Acesso vitalício</span>
+      <span>✓ Garantia de 7 dias</span>
+      <span>✓ Pagamento seguro</span>
+      <span style="color:var(--orange);font-weight:700;">R$ 147,00</span>
+    </div>
+
+    <div class="hero-img" style="margin-top:36px;">
+      <img src="https://i.im.ge/QMsyUFX/ChatGPT_Image_13_de_mai._de_2026_12_25_42.png" alt="Bíblia da Energia de Telecom">
+    </div>
+
+    <div class="video-wrap">
+      <video controls preload="metadata">
+        <source src="bibliatelecom.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="proof-strip">
+      <div class="proof-item"><span class="proof-num" id="counter">1.247</span><span class="proof-lbl">Provedores Protegidos</span></div>
+      <div class="proof-item"><span class="proof-num">98%</span><span class="proof-lbl">Satisfação</span></div>
+      <div class="proof-item"><span class="proof-num">&lt;1h</span><span class="proof-lbl">Para Instalar</span></div>
+      <div class="proof-item"><span class="proof-num">7 dias</span><span class="proof-lbl">Garantia Total</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEMAS -->
+<section>
+  <div class="container">
+    <span class="sec-label">O Problema Real</span>
+    <h2>O <span class="acc">Prejuízo</span> de Cada Apagão</h2>
+    <div class="card-grid">
+      <div class="card"><h3>📱 WhatsApp Explode</h3><p>Clientes irritados, mensagens sem parar, noite virada gerenciando crise em vez de descansar.</p></div>
+      <div class="card"><h3>💸 Cancelamentos</h3><p>Seu cliente fiel cancela. O vizinho desiste de contratar. Receita despenca R$ 100, R$ 200, R$ 500 por mês.</p></div>
+      <div class="card"><h3>🔥 Equipamentos Queimados</h3><p>Surto na volta da energia pode fritar switches, rádios e ONUs. Prejuízo de até R$ 2.000.</p></div>
+      <div class="card"><h3>😰 Insônia e Estresse</h3><p>Chuva chegando? Coração acelera. Sua tranquilidade vale muito mais que o investimento.</p></div>
+    </div>
+    <div style="margin-top:36px;background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.15);border-radius:var(--r);padding:28px;text-align:center;font-size:18px;font-weight:600;line-height:1.6;">
+      Você não precisa <span style="color:var(--orange);">aceitar isso</span> como normal.<br>
+      Uma solução de <span style="color:var(--orange);">menos de R$ 1.800</span> quebra esse ciclo <strong>para sempre</strong>.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUÇÃO -->
+<div class="dark-bg">
+<section>
+  <div class="container text-center">
+    <span class="sec-label">A Solução</span>
+    <h2>A <span class="acc">Solução</span> Definitiva</h2>
+    <p style="max-width:600px;margin:16px auto 32px;color:#94a3b8;font-size:16px;">O guia mais completo do Brasil para backup de energia em provedores. Didática simples, passo a passo ilustrado, do zero ao sistema funcionando.</p>
+    <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:36px;">
+      <div style="background:var(--card);padding:24px 28px;border-radius:var(--r);border:1px solid var(--border);text-align:left;">
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#94a3b8;">
+          <li style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green);">✅</span> Cálculo do banco de baterias ideal</li>
+          <li style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green);">✅</span> Nobreak certo pelo preço justo</li>
+          <li style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green);">✅</span> Diagramas e fotos reais de instalação</li>
+          <li style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green);">✅</span> Plano de crescimento até energia solar</li>
+          <li style="display:flex;align-items:center;gap:10px;"><span style="color:var(--green);">✅</span> Checklist de segurança aprovado por engenheiros</li>
+        </ul>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(249,115,22,.2),rgba(249,115,22,.05));border:1px solid rgba(249,115,22,.3);padding:24px 28px;border-radius:var(--r);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;text-align:center;animation:bookFloat 4s ease-in-out infinite;">
+        📘 Bíblia da Energia<br><span style="color:var(--orange);">de Telecom</span><br><span style="font-size:14px;font-family:'Barlow',sans-serif;font-weight:400;color:#94a3b8;">Módulo 1</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+@keyframes bookFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+<div class="divider"></div>
+
+<!-- MÓDULOS -->
+<section>
+  <div class="container">
+    <span class="sec-label">O Que Você Aprende</span>
+    <h2>O Que Você <span class="acc">Aprende</span></h2>
+    <div class="timeline">
+      <div class="timeline-item"><div class="mod-tag">Fundamentos</div><h3>01. O Efeito Dominó</h3><p>Descubra o custo real de cada minuto offline. Tabelas reais de prejuízo.</p></div>
+      <div class="timeline-item"><div class="mod-tag">Diagnóstico</div><h3>02. Raio-X do Provedor</h3><p>Meça o consumo exato de cada equipamento. Descubra o vilão que suga sua energia.</p></div>
+      <div class="timeline-item"><div class="mod-tag">Instalação</div><h3>03. Instalação Completa</h3><p>5 passos para deixar sua rede blindada em menos de 1h. Com diagramas detalhados.</p></div>
+      <div class="timeline-item"><div class="mod-tag">Escala</div><h3>04. Crescimento por Fases</h3><p>Do básico (50 clientes) até solar (500 clientes). Cada fase detalhada.</p></div>
+      <div class="timeline-item"><div class="mod-tag">Manutenção</div><h3>05. Checklist de Segurança</h3><p>Evite erros fatais e mantenha tudo funcionando por anos.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BÔNUS -->
+<div class="dark-bg">
+<section>
+  <div class="container text-center">
+    <span class="sec-label">Bônus Exclusivos</span>
+    <h2>Bônus <span class="acc">Exclusivos</span></h2>
+    <div class="card-grid" style="margin-top:32px;">
+      <div class="card"><h3>📊 Planilha de Cálculo</h3><p>Automatize o dimensionamento do banco de baterias. <span style="color:var(--green);">Valor R$ 47 → Grátis</span></p></div>
+      <div class="card"><h3>📋 Checklist Imprimível</h3><p>Cole na parede da sala técnica e nunca esqueça um passo. <span style="color:var(--green);">Valor R$ 27 → Grátis</span></p></div>
+      <div class="card"><h3>💬 Grupo VIP</h3><p>Tire dúvidas com especialistas e troque ideias com centenas de provedores do Brasil.</p></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="divider"></div>
+
+<!-- QUEM É BORGES - AUTORIDADE -->
+<section class="author-section">
+  <div class="container">
+    <span class="sec-label">Quem Está Por Trás do Curso</span>
+    <h2>Criado por Quem <span class="acc">Viveu na Prática</span></h2>
+    <div class="author-card">
+      <div class="author-avatar">B</div>
+      <div style="flex:1;min-width:260px;">
+        <div class="author-name">Borges</div>
+        <div class="author-role">Dono de provedor de internet · 13 anos em telecom</div>
+        <p class="author-bio">Desde <b>2012 no mercado de telecomunicações</b>, Borges sabe na pele o que significa perder cliente por falta de energia. Como <b>dono de provedor de internet</b>, enfrentou apagões, equipamentos queimados e WhatsApp explodindo de madrugada — várias vezes.</p>
+        <br>
+        <p class="author-bio">Foi exatamente por isso que desenvolveu a <b>Bíblia da Energia de Telecom</b>: um guia prático e direto ao ponto, criado por quem vive a realidade do provedor pequeno todo dia — não por consultor de escritório.</p>
+        <div class="author-stats">
+          <div class="astat"><div class="astat-num">13+</div><div class="astat-lbl">Anos em telecom</div></div>
+          <div class="astat"><div class="astat-num">2012</div><div class="astat-lbl">No mercado</div></div>
+          <div class="astat"><div class="astat-num">100%</div><div class="astat-lbl">Experiência real</div></div>
         </div>
-    </section>
-
-    <!-- Imagem destacada no topo -->
-    <section style="padding-top: 20px; padding-bottom: 10px;">
-        <div class="container">
-            <div class="hero-image">
-                <img src="https://i.im.ge/QMsyUFX/ChatGPT_Image_13_de_mai._de_2026_12_25_42.png" alt="Bíblia da Energia de Telecom - Módulo 1">
-            </div>
+        <div class="author-quote">
+          "Não criei esse material em teoria. Cada módulo foi escrito depois de uma noite resolvendo problema real no meu próprio provedor. Se eu tivesse esse guia quando comecei, teria economizado anos de dor de cabeça."
+          <div class="author-quote-name">— Borges, criador da Bíblia da Energia de Telecom</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Vídeo menor abaixo -->
-    <section style="padding-top: 10px; padding-bottom: 40px;">
-        <div class="container">
-            <div class="video-container">
-                <video controls>
-                    <source src="bibliatelecom.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeo.
-                </video>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- Problemas -->
-    <section>
-        <div class="container">
-            <h2 class="text-center">O <span class="highlight">Prejuízo</span> de Cada Apagão</h2>
-            <div class="card-grid">
-                <div class="card"><h3>📱 WhatsApp Explode</h3><p>Clientes irritados, mensagens sem parar, noite virada gerenciando crise.</p></div>
-                <div class="card"><h3>💸 Cancelamentos</h3><p>Seu cliente fiel cancela. O vizinho desiste de contratar. Receita despenca.</p></div>
-                <div class="card"><h3>🔥 Equipamentos Queimados</h3><p>Surto na volta da energia pode fritar switches, rádios e ONUs. Prejuízo de até R$ 2.000.</p></div>
-                <div class="card"><h3>😰 Insônia e Estresse</h3><p>Chuva chegando? Coração acelera. Sua tranquilidade vale muito mais que o investimento.</p></div>
-            </div>
-        </div>
-    </section>
+<!-- DEPOIMENTOS -->
+<section>
+  <div class="container">
+    <span class="sec-label">Resultados Reais</span>
+    <h2>Quem Já <span class="acc">Blindou</span> a Rede</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-text">"Instalei tudo em 40 minutos. Faz 4 meses e zero chamados por queda de energia. Melhor investimento do ano."</p>
+        <p class="test-author">João M. – Provedor NetMais (SP)</p>
+      </div>
+      <div class="test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-text">"Enfrentamos 4 tempestades e a rede ficou 100% no ar. Meus clientes nem perceberam a falta de energia."</p>
+        <p class="test-author">Ana L. – Connect Fibra (MG)</p>
+      </div>
+      <div class="test-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="test-text">"A planilha me economizou R$ 600 que eu ia gastar em bateria errada. Vale muito mais que o preço."</p>
+        <p class="test-author">Roberto C. – SpeedNet (BA)</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Solução -->
-    <section style="background: #0f172a;">
-        <div class="container text-center">
-            <h2>A <span class="highlight">Solução</span> Definitiva</h2>
-            <p style="max-width: 600px; margin: 16px auto 32px; color: #cbd5e1;">
-                O guia mais completo do Brasil para backup de energia em provedores. Didática simples, passo a passo ilustrado, do zero ao sistema funcionando.
-            </p>
-            <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 40px;">
-                <div style="background: #131b2b; padding: 20px 28px; border-radius: 12px; border: 1px solid #1e293b; text-align: left;">
-                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 1rem;">
-                        <li>✅ Cálculo do banco de baterias ideal</li>
-                        <li>✅ Nobreak certo pelo preço justo</li>
-                        <li>✅ Diagramas e fotos reais de instalação</li>
-                        <li>✅ Plano de crescimento até energia solar</li>
-                        <li>✅ Checklist de segurança aprovado por engenheiros</li>
-                    </ul>
-                </div>
-                <div style="background: #f97316; padding: 20px 28px; border-radius: 12px; color: #fff; font-weight: 600; text-align: center;">
-                    📘 Bíblia da Energia<br>de Telecom<br><span style="font-size: 0.9rem;">Módulo 1</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- Módulos -->
-    <section>
-        <div class="container">
-            <h2 class="text-center">O Que Você <span class="highlight">Aprende</span></h2>
-            <div class="timeline">
-                <div class="timeline-item"><h3>01. O Efeito Dominó</h3><p>Descubra o custo real de cada minuto offline.</p></div>
-                <div class="timeline-item"><h3>02. Raio-X do Provedor</h3><p>Meça o consumo exato de cada equipamento.</p></div>
-                <div class="timeline-item"><h3>03. Instalação Completa</h3><p>5 passos para deixar sua rede blindada em menos de 1h.</p></div>
-                <div class="timeline-item"><h3>04. Crescimento por Fases</h3><p>Do básico (50 clientes) até solar (500 clientes).</p></div>
-                <div class="timeline-item"><h3>05. Checklist de Segurança</h3><p>Evite erros fatais e mantenha tudo funcionando.</p></div>
-            </div>
-        </div>
-    </section>
+<!-- PREÇO -->
+<div class="dark-bg">
+<section>
+  <div class="container">
+    <div class="text-center" style="margin-bottom:36px;">
+      <span class="sec-label">Oferta de Lançamento</span>
+      <h2>Invista Hoje e <span class="acc">Pare de Perder Clientes</span></h2>
+    </div>
+    <div class="price-box">
+      <div class="price-launch">🔴 Lançamento — Preço Especial</div>
+      <div class="price-old">De R$ 199,99</div>
+      <div class="price-main"><small>R$</small> 147</div>
+      <div class="price-ctx">Pagamento único · Acesso vitalício</div>
+      <div class="price-install">ou 12x de R$ 12,25 sem juros</div>
+      <div class="price-feats">
+        <div class="pf"><span class="pf-dot"></span> Material completo Módulo 1 (PDF)</div>
+        <div class="pf"><span class="pf-dot"></span> Planilha de cálculo de autonomia</div>
+        <div class="pf"><span class="pf-dot"></span> Checklist de instalação imprimível</div>
+        <div class="pf"><span class="pf-dot"></span> Acesso ao Grupo VIP de alunos</div>
+        <div class="pf"><span class="pf-dot"></span> Atualizações gratuitas para sempre</div>
+      </div>
+      <a href="https://pay.kiwify.com.br/KCM0X00" class="btn btn-green" target="_blank" rel="noopener" style="margin-top:20px;font-size:18px;">⚡ Quero Começar por R$ 147,00 →</a>
+      <div class="secure">🔒 Compra segura via Kiwify | 7 dias de garantia</div>
+    </div>
+  </div>
+</section>
+</div>
 
-    <!-- Bônus -->
-    <section style="background: #0f172a;">
-        <div class="container text-center">
-            <h2>Bônus <span class="highlight">Exclusivos</span></h2>
-            <div class="card-grid" style="margin-top: 32px;">
-                <div class="card"><h3>📊 Planilha de Cálculo</h3><p>Automatize o dimensionamento do banco de baterias. (Valor R$ 47 → Grátis)</p></div>
-                <div class="card"><h3>📋 Checklist Imprimível</h3><p>Cole na parede da sala técnica e nunca esqueça um passo. (Valor R$ 27 → Grátis)</p></div>
-                <div class="card"><h3>💬 Grupo VIP</h3><p>Tire dúvidas com especialistas e troque ideias com outros provedores.</p></div>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- Depoimentos -->
-    <section>
-        <div class="container">
-            <h2 class="text-center">Quem Já <span class="highlight">Blindou</span> a Rede</h2>
-            <div class="card-grid">
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Instalei tudo em 40 minutos. Faz 4 meses e zero chamados por queda de energia."</p>
-                    <p class="author">João M. – Provedor NetMais (SP)</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"Enfrentamos 4 tempestades e a rede ficou 100% no ar. Meus clientes nem perceberam."</p>
-                    <p class="author">Ana L. – Connect Fibra (MG)</p>
-                </div>
-                <div class="testimonial-card">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonial-text">"A planilha me economizou R$ 600 que eu ia gastar em bateria errada."</p>
-                    <p class="author">Roberto C. – SpeedNet (BA)</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- GARANTIA -->
+<section>
+  <div class="container">
+    <div class="guarantee">
+      <div class="g-seal">🛡️</div>
+      <div class="g-text">
+        <h3>Garantia Incondicional de 7 Dias</h3>
+        <p>Se por qualquer motivo você não ficar <b>100% satisfeito</b>, devolvemos cada centavo do seu dinheiro.<br><b>Sem perguntas. Sem letras miúdas. Sem burocracia.</b><br>Risco zero para você. Experimente por 7 dias e comprove.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Preço -->
-    <section style="background: #0f172a;">
-        <div class="container">
-            <div class="price-box">
-                <p style="color: #f97316; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Oferta de Lançamento</p>
-                <p class="old-price">De R$ 199,99</p>
-                <p class="current-price"><span>R$</span> 147,00</p>
-                <p style="color: #cbd5e1; font-size: 1.1rem;">Pagamento único · Acesso vitalício</p>
-                <p class="installments">ou 12x de R$ 12,25 sem juros</p>
-                <a href="https://pay.kiwify.com.br/KCM0X00" class="btn" style="margin-top: 20px; font-size: 1.2rem; padding: 20px 40px;">⚡ Quero Começar por R$ 147,00 →</a>
-                <p style="margin-top: 16px; font-size: 0.85rem; color: #64748b;">🔒 Compra segura via Kiwify | 7 dias de garantia</p>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- Garantia -->
-    <section>
-        <div class="container text-center">
-            <h2><span class="highlight">Garantia</span> Incondicional de 7 Dias</h2>
-            <p style="max-width: 600px; margin: 20px auto; color: #cbd5e1;">
-                Se por qualquer motivo você não ficar satisfeito, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.
-            </p>
-            <p style="font-size: 2rem;">🛡️</p>
-        </div>
-    </section>
+<!-- FAQ -->
+<section>
+  <div class="container" style="max-width:700px;">
+    <span class="sec-label" style="text-align:center;display:block;">Dúvidas Frequentes</span>
+    <h2 class="text-center">Perguntas <span class="acc">Frequentes</span></h2>
+    <div style="margin-top:36px;">
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Como recebo o material? <span class="faq-icon">+</span></div><div class="faq-a">Acesso imediato após a confirmação do pagamento, direto na plataforma Kiwify. Funciona no celular, tablet e computador.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Preciso de conhecimento técnico? <span class="faq-icon">+</span></div><div class="faq-a">Não. O material é totalmente didático, com diagramas e passo a passo simples para qualquer pessoa seguir.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Funciona para qualquer provedor? <span class="faq-icon">+</span></div><div class="faq-a">Sim, para redes de 5 a 500 clientes, fibra ou rádio. O método se adapta ao seu tamanho.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Quanto tempo levo para instalar? <span class="faq-icon">+</span></div><div class="faq-a">Seguindo o passo a passo do Módulo 1, você instala tudo em menos de 1 hora.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">E se eu não gostar? <span class="faq-icon">+</span></div><div class="faq-a">Devolução total em até 7 dias, sem complicações. Basta enviar um e-mail e devolvemos 100% do valor.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Vou ter acesso aos próximos módulos? <span class="faq-icon">+</span></div><div class="faq-a">Comprando agora no preço de lançamento, você garante acesso preferencial com desconto especial aos próximos módulos.</div></div>
+    </div>
+  </div>
+</section>
 
-    <!-- FAQ -->
-    <section>
-        <div class="container" style="max-width: 700px;">
-            <h2 class="text-center">Perguntas <span class="highlight">Frequentes</span></h2>
-            <div class="faq-item" onclick="this.classList.toggle('open')">
-                <h3>Como recebo o material? <span class="faq-icon">+</span></h3>
-                <div class="faq-answer">Acesso imediato após a confirmação do pagamento, direto na plataforma Kiwify.</div>
-            </div>
-            <div class="faq-item" onclick="this.classList.toggle('open')">
-                <h3>Preciso de conhecimento técnico? <span class="faq-icon">+</span></h3>
-                <div class="faq-answer">Não. O material é totalmente didático, com diagramas e passo a passo simples.</div>
-            </div>
-            <div class="faq-item" onclick="this.classList.toggle('open')">
-                <h3>Funciona para qualquer provedor? <span class="faq-icon">+</span></h3>
-                <div class="faq-answer">Sim, para redes de 5 a 500 clientes, fibra ou rádio.</div>
-            </div>
-            <div class="faq-item" onclick="this.classList.toggle('open')">
-                <h3>E se eu não gostar? <span class="faq-icon">+</span></h3>
-                <div class="faq-answer">Devolução total em até 7 dias, sem complicações.</div>
-            </div>
-        </div>
-    </section>
+<div class="divider"></div>
 
-    <!-- Último CTA -->
-    <section class="text-center">
-        <div class="container">
-            <h2>Pronto para <span class="highlight">Dormir Tranquilo</span> na Próxima Chuva?</h2>
-            <p style="color: #cbd5e1; margin: 20px 0 32px;">Invista menos que uma mensalidade perdida e nunca mais perca um cliente por apagão.</p>
-            <a href="https://pay.kiwify.com.br/KCM0X00" class="btn">⚡ Sim, Quero Blindar Minha Rede →</a>
-        </div>
-    </section>
+<!-- ÚLTIMO CTA -->
+<section class="text-center">
+  <div class="container">
+    <span class="sec-label" style="display:block;">Última Chamada</span>
+    <h2>Pronto para <span class="acc">Dormir Tranquilo</span><br>na Próxima Chuva?</h2>
+    <p style="color:#94a3b8;margin:20px auto 32px;max-width:560px;font-size:16px;">Invista menos que uma mensalidade perdida e nunca mais perca um cliente por apagão.</p>
+    <a href="https://pay.kiwify.com.br/KCM0X00" class="btn" target="_blank" rel="noopener">⚡ Sim, Quero Blindar Minha Rede →</a>
+    <div style="margin-top:16px;">
+      <span style="color:var(--green);font-size:13px;">✓ Risco zero — 7 dias de garantia</span><br>
+      <span style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--orange);">R$ 147,00</span>
+      <span style="color:var(--gray2);font-size:13px;"> · Pagamento único · Acesso vitalício</span>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>© 2025 Bíblia da Energia de Telecom. Todos os direitos reservados.</p>
-    </footer>
+<footer>
+  <p>© 2025 Bíblia da Energia de Telecom. Todos os direitos reservados.</p>
+  <p style="margin-top:5px;">Pagamento processado com segurança pela Kiwify. | 7 dias de garantia incondicional.</p>
+</footer>
 
-    <a href="https://wa.me/5513996710855?text=Ol%C3%A1!%20Vi%20o%20guia%20B%C3%ADblia%20da%20Energia%20de%20Telecom%20e%20tenho%20interesse%20em%20blindar%20meu%20provedor%20contra%20apag%C3%B5es.%20Pode%20me%20ajudar%3F" class="whatsapp-float" target="_blank">💬</a>
+<!-- STICKY -->
+<div class="sticky" id="stickyCta">
+  <div>
+    <div class="sticky-price">R$ 147,00</div>
+    <div class="sticky-desc">Pagamento único · Acesso vitalício</div>
+  </div>
+  <a href="https://pay.kiwify.com.br/KCM0X00" class="sticky-btn" target="_blank" rel="noopener">⚡ Blindar Agora →</a>
+</div>
 
+<a href="https://wa.me/5513996710855?text=Ol%C3%A1!%20Vi%20o%20guia%20B%C3%ADblia%20da%20Energia%20de%20Telecom%20e%20tenho%20interesse%20em%20blindar%20meu%20provedor%20contra%20apag%C3%B5es.%20Pode%20me%20ajudar%3F" class="wpp" target="_blank" rel="noopener">💬</a>
+
+<script>
+const sticky=document.getElementById('stickyCta');
+const heroTrust=document.querySelector('.trust-row');
+window.addEventListener('scroll',()=>{
+  if(heroTrust.getBoundingClientRect().bottom<0)sticky.classList.add('show');
+  else sticky.classList.remove('show');
+});
+
+(function(){
+  const el=document.getElementById('counter');
+  new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+      let v=0;
+      const iv=setInterval(()=>{
+        v+=Math.ceil((1247-v)/40);
+        if(v>=1247){v=1247;clearInterval(iv);}
+        el.textContent=v.toLocaleString('pt-BR');
+      },30);
+    }
+  },{threshold:.5}).observe(el);
+})();
+
+const names=['Marcos S.','Fernanda L.','Ricardo A.','Juliana P.','Carlos E.','Patrícia M.','Lucas B.'];
+const cities=['São Paulo','Rio de Janeiro','Belo Horizonte','Curitiba','Salvador','Fortaleza','Recife'];
+function showPopup(){
+  const p=document.createElement('div');
+  p.className='sale-popup';
+  p.innerHTML=`<div class="pop-av">✓</div><div><div class="pop-name">${names[Math.floor(Math.random()*names.length)]} comprou</div><div class="pop-time">${cities[Math.floor(Math.random()*cities.length)]} · agora mesmo</div></div>`;
+  document.body.appendChild(p);
+  setTimeout(()=>{p.style.opacity='0';p.style.transition='opacity .5s';setTimeout(()=>p.remove(),500);},5000);
+}
+setTimeout(showPopup,12000);
+setInterval(()=>{if(Math.random()<.7)showPopup();},65000+Math.random()*25000);
+</script>
 </body>
 </html>
