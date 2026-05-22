@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bíblia da Energia de Telecom – 1º Módulo | R$ 49,99</title>
-    <meta name="description" content="Guia prático para blindar seu provedor contra apagões. 1º Módulo já disponível. Acesso imediato e garantia de 7 dias.">
+    <meta name="description" content="Guia prático para blindar seu provedor contra apagões. 1º Módulo já disponível. Acesso imediato e garantia de 7 dias. Calculadora de autonomia integrada.">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JDRNDHQMS"></script>
@@ -51,7 +51,7 @@
             display: inline-block; background: #f97316; color: #ffffff; font-weight: 700; font-size: 1.1rem;
             padding: 18px 36px; border-radius: 8px; text-decoration: none;
             transition: background 0.3s, transform 0.2s; text-align: center;
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
+            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4); border: none; cursor: pointer;
         }
         .btn:hover { background: #ea580c; transform: translateY(-2px); }
         section { padding: 60px 0; position: relative; z-index: 2; }
@@ -86,7 +86,253 @@
             min-width: 50px;
             text-align: center;
         }
-        .timer-label-small { font-size: 0.75rem; color: #94a3b8; }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(6px);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-overlay.hidden {
+            display: none;
+        }
+        .modal-content {
+            background: rgba(17, 24, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 24px;
+            padding: 30px 25px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.2);
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-close {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 10;
+        }
+        .modal-close:hover {
+            background: rgba(239, 68, 68, 0.4);
+            color: #fff;
+        }
+
+        /* Conteúdo da calculadora no modal */
+        .calc-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .calc-header .calc-icon {
+            font-size: 40px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+        .calc-title {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 10px 0 5px;
+        }
+        .calc-sub {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #cbd5e1;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid rgba(56, 189, 248, 0.15);
+            border-radius: 12px;
+            background: rgba(15, 23, 42, 0.8);
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            outline: none;
+            font-family: inherit;
+        }
+        .input-group input:focus, .input-group select:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+        }
+        .input-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2338bdf8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+        }
+        .calc-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            margin-top: 10px;
+        }
+        .calc-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(56, 189, 248, 0.3);
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+        }
+        .calc-btn.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .calc-result {
+            margin-top: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 20px;
+            border-radius: 16px;
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .calc-result h3 {
+            color: #38bdf8;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .calc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            padding: 8px 12px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 8px;
+        }
+        .calc-item .item-icon { font-size: 20px; }
+        .battery-icons {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        .battery-icon {
+            width: 35px;
+            height: 55px;
+            background: linear-gradient(180deg, #38bdf8, #0284c7);
+            border-radius: 5px 5px 2px 2px;
+            position: relative;
+            animation: popIn 0.4s ease forwards;
+            opacity: 0;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+        }
+        .battery-icon::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 6px;
+            background: #38bdf8;
+            border-radius: 2px 2px 0 0;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.3) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .calc-cta {
+            margin-top: 20px;
+            background: #f97316;
+            padding: 12px;
+            border-radius: 12px;
+            color: #fff;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 6px 15px rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease;
+        }
+        .calc-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(249, 115, 22, 0.5); }
+
+        /* Botão flutuante da calculadora */
+        .calc-float-btn {
+            position: fixed;
+            bottom: 100px;
+            left: 24px;
+            z-index: 100;
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .calc-float-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.6);
+        }
 
         /* Vídeo pequeno */
         .small-video-container {
@@ -97,10 +343,7 @@
             box-shadow: 0 0 20px rgba(249,115,22,0.2);
             border: 1px solid rgba(249,115,22,0.3);
         }
-        .small-video-container video {
-            width: 100%;
-            display: block;
-        }
+        .small-video-container video { width: 100%; display: block; }
 
         /* Imagem destacada */
         .hero-image {
@@ -151,14 +394,70 @@
             .current-price { font-size: 3.5rem; }
             .timer-digit { font-size: 1.5rem; min-width: 40px; }
             .small-video-container { max-width: 280px; }
+            .modal-content { padding: 20px 15px; }
         }
     </style>
 </head>
 <body>
-    <!-- Fundo animado (canvas) -->
     <div class="bg-animation"><canvas id="bgCanvas"></canvas></div>
 
-    <!-- Cronômetro + Hero -->
+    <!-- MODAL DA CALCULADORA -->
+    <div class="modal-overlay" id="calcModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal()" title="Fechar calculadora">✕</button>
+            
+            <div class="calc-header">
+                <div class="calc-icon">🔋</div>
+                <div class="calc-title">Calculadora de Autonomia ISP</div>
+                <p class="calc-sub">Descubra quantas baterias seu provedor precisa para não cair durante um apagão.</p>
+            </div>
+
+            <div class="input-group">
+                <label>⚡ Consumo Total (Watts)</label>
+                <input type="number" id="watts" placeholder="Ex: 300 (some todos os equipamentos)">
+            </div>
+            <div class="input-group">
+                <label>🔌 Tensão do Sistema</label>
+                <select id="tensao">
+                    <option value="12">12V — Sistemas pequenos</option>
+                    <option value="24" selected>24V — Mais comum em ISPs</option>
+                    <option value="48">48V — Provedores maiores</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>⏱️ Autonomia Desejada (horas)</label>
+                <input type="number" id="horas" placeholder="Ex: 6 (tempo sem energia)">
+            </div>
+            <div class="input-group">
+                <label>🔋 Tipo da Bateria</label>
+                <select id="tipo">
+                    <option value="1000">Chumbo-Ácida (mais barata)</option>
+                    <option value="1800">Lítio (mais leve e durável)</option>
+                </select>
+            </div>
+
+            <button class="calc-btn" id="calcBtn" onclick="calcular()">⚡ CALCULAR AGORA</button>
+
+            <div class="calc-result" id="calcResult">
+                <h3>📊 Resultado do Dimensionamento</h3>
+                <div class="calc-item" id="corrente"><span class="item-icon">🔋</span><span></span></div>
+                <div class="calc-item" id="banco"><span class="item-icon">⚡</span><span></span></div>
+                <div class="calc-item" id="quantidade"><span class="item-icon">🔧</span><span></span></div>
+                <div class="calc-item" id="custo"><span class="item-icon">💰</span><span></span></div>
+                <div class="battery-icons" id="batteryVisual"></div>
+                <a href="https://pay.kiwify.com.br/KCM0X00" class="calc-cta" target="_blank">
+                    🚀 Quer o projeto completo do seu POP? Acesse a Bíblia da Energia ISP
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão flutuante para abrir calculadora -->
+    <button class="calc-float-btn" id="openCalcBtn" onclick="abrirModal()" title="Calcular Autonomia">
+        🔋 Calcular Autonomia
+    </button>
+
+    <!-- Hero + Cronômetro -->
     <section style="padding-top: 30px; padding-bottom: 15px;">
         <div class="container text-center">
             <p style="color: #f97316; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">1º Módulo – Acesso Imediato</p>
@@ -166,7 +465,6 @@
             <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 650px; margin: 0 auto 20px;">
                 Chega de perder clientes e dinheiro a cada apagão. Blindagem completa para seu provedor por menos de R$ 1.800 – mesmo com 50 clientes e zero experiência em elétrica.
             </p>
-            <!-- Cronômetro de urgência -->
             <div class="timer-bar" id="timerBar">
                 <span style="color:#f97316;">⏳ Oferta termina em:</span>
                 <span class="timer-digit" id="hours">23</span> :
@@ -180,7 +478,7 @@
         </div>
     </section>
 
-    <!-- Vídeo pequeno no topo -->
+    <!-- Vídeo pequeno -->
     <section style="padding-top: 5px; padding-bottom: 15px;">
         <div class="container">
             <div class="small-video-container">
@@ -350,9 +648,10 @@
         <p>© 2025 Bíblia da Energia de Telecom. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- WhatsApp Float -->
     <a href="https://wa.me/5513996710855?text=Ol%C3%A1!%20Vi%20o%20guia%20B%C3%ADblia%20da%20Energia%20de%20Telecom%20e%20tenho%20interesse%20em%20blindar%20meu%20provedor%20contra%20apag%C3%B5es.%20Pode%20me%20ajudar%3F" class="whatsapp-float" target="_blank">💬</a>
 
-    <!-- Script: Cronômetro + Fundo animado -->
+    <!-- Scripts: Cronômetro + Fundo Animado + Calculadora + Modal -->
     <script>
         // Cronômetro 24h
         const endTime = new Date().getTime() + 24 * 60 * 60 * 1000;
@@ -416,7 +715,6 @@
         function animate() {
             ctx.clearRect(0, 0, width, height);
             drawGrid();
-
             particles.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
@@ -427,8 +725,6 @@
                 ctx.fillStyle = 'rgba(249, 115, 22, 0.5)';
                 ctx.fill();
             });
-
-            // Linhas entre partículas próximas
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -447,6 +743,112 @@
             requestAnimationFrame(animate);
         }
         animate();
+
+        // Modal
+        const modal = document.getElementById('calcModal');
+        const openBtn = document.getElementById('openCalcBtn');
+
+        function abrirModal() {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        function fecharModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+        // Fecha ao clicar fora da calculadora (no overlay)
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                fecharModal();
+            }
+        });
+        // Esconde o botão flutuante quando o modal está aberto
+        const observer = new MutationObserver(() => {
+            if (!modal.classList.contains('hidden')) {
+                openBtn.style.display = 'none';
+            } else {
+                openBtn.style.display = 'flex';
+            }
+        });
+        observer.observe(modal, { attributes: true, attributeFilter: ['class'] });
+
+        // Abre automaticamente após 2 segundos (só na primeira visita por sessão)
+        setTimeout(() => {
+            if (!sessionStorage.getItem('calcShown')) {
+                abrirModal();
+                sessionStorage.setItem('calcShown', 'true');
+            }
+        }, 2000);
+
+        // Calculadora
+        function calcular() {
+            let watts = parseFloat(document.getElementById('watts').value);
+            let tensao = parseFloat(document.getElementById('tensao').value);
+            let horas = parseFloat(document.getElementById('horas').value);
+            let precoBateria = parseFloat(document.getElementById('tipo').value);
+            const btn = document.getElementById('calcBtn');
+
+            if (!watts || !tensao || !horas) {
+                btn.style.animation = 'shake 0.5s ease';
+                setTimeout(() => btn.style.animation = '', 500);
+                alert("⚠️ Preencha todos os campos para continuar.");
+                return;
+            }
+
+            btn.classList.add('loading');
+            btn.textContent = 'Calculando...';
+
+            setTimeout(() => {
+                let ah = (watts * horas) / tensao;
+                let ahFinal = ah * 1.3;
+                let qtdBaterias = Math.ceil(ahFinal / 100);
+                if (tensao === 24) qtdBaterias = Math.max(qtdBaterias, 2);
+                if (tensao === 48) qtdBaterias = Math.max(qtdBaterias, 4);
+                let custo = qtdBaterias * precoBateria;
+
+                document.getElementById('corrente').querySelector('span:last-child').innerHTML =
+                    'Capacidade necessária: <b>' + ahFinal.toFixed(1) + ' Ah</b> (com margem de segurança)';
+                document.getElementById('banco').querySelector('span:last-child').innerHTML =
+                    'Banco recomendado: <b>' + tensao + 'V</b>';
+                document.getElementById('quantidade').querySelector('span:last-child').innerHTML =
+                    'Quantidade estimada de baterias (100Ah): <b>' + qtdBaterias + '</b>';
+                document.getElementById('custo').querySelector('span:last-child').innerHTML =
+                    'Custo estimado: <b>R$ ' + custo.toLocaleString('pt-BR') + '</b>';
+
+                const batteryVisual = document.getElementById('batteryVisual');
+                batteryVisual.innerHTML = '';
+                for (let i = 0; i < qtdBaterias; i++) {
+                    const bateria = document.createElement('div');
+                    bateria.classList.add('battery-icon');
+                    bateria.style.animationDelay = (i * 0.1) + 's';
+                    batteryVisual.appendChild(bateria);
+                }
+
+                const resultado = document.getElementById('calcResult');
+                resultado.style.display = 'block';
+                resultado.style.animation = 'none';
+                resultado.offsetHeight;
+                resultado.style.animation = 'fadeInUp 0.5s ease';
+
+                btn.classList.remove('loading');
+                btn.textContent = '⚡ CALCULAR NOVAMENTE';
+
+                resultado.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 800);
+        }
+
+        // Animação de shake
+        const shakeStyle = document.createElement('style');
+        shakeStyle.textContent = `
+            @keyframes shake {
+                0%,100% { transform: translateX(0); }
+                20% { transform: translateX(-8px); }
+                40% { transform: translateX(8px); }
+                60% { transform: translateX(-6px); }
+                80% { transform: translateX(6px); }
+            }
+        `;
+        document.head.appendChild(shakeStyle);
     </script>
 </body>
 </html>
